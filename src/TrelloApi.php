@@ -19,6 +19,14 @@ class TrelloApi
         $this->apiToken = config('dashboard.tiles.trello.trello_token');
     }
 
+    public function getMyCards(string $listId)
+    {
+        return Http::get("https://api.trello.com/1/members/me/cards", [
+          'key'     => $this->apiKey,
+          'token'   => $this->apiToken,
+        ])->json();
+    }
+
     /**
      * Fetch cards from Trello.
      *

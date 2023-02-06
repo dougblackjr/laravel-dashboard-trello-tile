@@ -31,7 +31,7 @@ class FetchTrelloCardsCommand extends Command
     {
         $this->info('Fetching cards from Trello...');
 
-        $response = collect($this->trello->getCards(config('dashboard.tiles.trello.list_id')));
+        $response = collect($this->trello->getMyCards(config('dashboard.tiles.trello.list_id')));
 
         $cards = [];
         foreach ($response as $item) {
